@@ -1,17 +1,18 @@
 <template>
-  <Counter title="Entrada" :start="15"/>
-  <Counter />
+  <IndesicionVue/>
+  
 </template>
 
 <script>
-import Counter from './components/Counter.vue'
-
+// import Counter from './components/Counter.vue'
+import IndesicionVue from './components/Indesicion.vue';
 
 export default {
 
   name: 'App',
   components: {
-    Counter
+    // Counter,
+    IndesicionVue
   },
   
 
