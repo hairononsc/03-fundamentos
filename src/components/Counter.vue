@@ -1,5 +1,6 @@
 <template>
-  <h2>{{ customTitle }} {{ start }}</h2>
+  <h2>{{ title }}</h2>
+  <p data-test-id="counter">{{ counter }}</p>
   <p>{{ counter }}<sup>2</sup> = {{ squareCounter }}</p>
   <p>{{ counter }}<sup>2</sup> = {{ squareCounter }}</p>
   <p>{{ counter }}<sup>2</sup> = {{ squareCounter }}</p>
@@ -18,10 +19,15 @@
 export default {
   name: 'Counter',
   props: {
-    title: String,
-    start: { type: Number, default: 100, validator(value){
-      return value >100;
-    } }
+    title: {
+      type: String,
+      default: 'Counter'
+    },
+    start: {
+      type: Number, default: 100, validator(value) {
+        return value > 0;
+      }
+    }
   },
   data() {
     return {
@@ -49,14 +55,9 @@ export default {
   },
   computed: {
     squareCounter() {
-
-      console.log('getSquareValue')
       return this.counter * this.counter;
     },
 
-    customTitle() {
-      return this.title || "No hay titulo"
-    }
   }
 }
 </script>
